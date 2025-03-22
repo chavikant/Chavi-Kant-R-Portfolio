@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            background: #1a1a1a;
+            padding: 25px;
+            width: 420px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .contact-container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: cyan;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 5px;
+            font-weight: 400;
+            text-align: left;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid transparent;
+            background: #222;
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: cyan;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: linear-gradient(90deg, cyan, #00ffff);
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #00ffff, cyan);
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+        }
+
+        #response-message {
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: lime;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-container">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="https://formsubmit.co/el/nabazu" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" placeholder="Your company name">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+            <!-- FormSubmit Hidden Fields -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://your-portfolio.com/thank-you.html">
+            
+            <button type="submit">Send Message</button>
+            <p id="response-message"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const form = this;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("response-message").innerText = "✅ Message sent successfully!";
+                    document.getElementById("response-message").classList.add("success");
+                    form.reset();
+                } else {
+                    throw new Error("Form submission failed.");
+                }
+            })
+            .catch(error => {
+                document.getElementById("response-message").innerText = "❌ Error sending message!";
+                document.getElementById("response-message").classList.add("error");
+            });
+        });
+    </script>
+
+</body>
+</html>
