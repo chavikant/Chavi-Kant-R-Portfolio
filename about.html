@@ -3,109 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Chavi Kant</title>
-    <link rel="stylesheet" href="style.css">
+    <title>About Me</title>
     <style>
-        body {
+        /* General Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: black;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0d0d0d;
             color: white;
-            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            text-align: center;
-            padding-top: 50px;
-        }
-        h1 {
-            font-size: 2.5em;
-            text-transform: uppercase;
-            color: cyan;
-            text-shadow: 0 0 10px cyan, 0 0 20px magenta;
-        }
-        .content {
+
+        /* About Section */
+        .about-container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-            gap: 20px;
+            gap: 50px;
+            background: #111;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            max-width: 900px;
         }
-        .text {
-            width: 45%;
-            font-size: 1.2em;
+
+        /* Left Side Content */
+        .about-content {
+            flex: 1;
             text-align: left;
         }
-        .image img {
-            width: 100%;
-            max-width: 280px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px cyan;
-        }
-        .btn {
-            padding: 12px 20px;
-            background: linear-gradient(to right, cyan, magenta);
-            color: black;
+
+        .title {
+            font-size: 24px;
             font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+        }
+
+        .description {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #0ff;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .buttons {
             margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px 10px 0 0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
             transition: 0.3s;
         }
-        .btn:hover {
+
+        .work-btn {
+            background: linear-gradient(45deg, cyan, blue);
+            box-shadow: 0 0 10px cyan;
+        }
+
+        .work-btn:hover {
+            box-shadow: 0 0 20px cyan;
+        }
+
+        .home-btn {
+            background: linear-gradient(45deg, violet, magenta);
+            box-shadow: 0 0 10px violet;
+        }
+
+        .home-btn:hover {
+            box-shadow: 0 0 20px violet;
+        }
+
+        /* Right Side Image */
+        .image-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 380px ;
+            height: 680px;
+            border-radius: 0%; /* Circular Shape */
+            border: 1px solid rgb(2, 2, 2);
+            box-shadow: 0 0 5px rgb(253, 255, 255);
+            transition: 0.3s;
+        }
+
+        .image-container img:hover {
+            box-shadow: 0 0 25px cyan;
             transform: scale(1.05);
         }
 
-        /* Responsive Styles */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .content {
+            .about-container {
                 flex-direction: column;
                 text-align: center;
             }
-            .text {
-                width: 100%;
-                font-size: 1em;
-            }
-            .image img {
-                max-width: 220px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            .text {
-                font-size: 0.9em;
-            }
-            .btn {
-                padding: 10px 15px;
-                font-size: 0.9em;
+            .image-container img {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>About Me</h1>
-        <div class="content">
-            <div class="text">
-                <p>Hi, I'm Chavi Kant, a passionate developer exploring the world of AI & Web Development.</p>
-                <p>I love solving complex problems and building innovative applications that make an impact.</p>
-                <p>With expertise in AI, ML, and full-stack development, I strive to create futuristic solutions.</p>
-                <a href="projects.html" class="btn">View My Work</a>
-            </div>
-            <div class="image">
-                <img src="profile.png" alt="Chavi Kant">
+
+    <div class="about-container">
+        <div class="about-content">
+            <h2 class="title">ABOUT ME</h2>
+            <p class="description">
+                Hi, I'm <span class="highlight">Chavi Kant</span>, a passionate developer exploring AI & Web Development.  
+                I love solving complex problems and building **innovative applications** that make an impact.  
+                With expertise in **AI, ML, and full-stack development**, I strive to create futuristic solutions.
+            </p>
+            <div class="buttons">
+                <a href="projects.html" class="btn work-btn">VIEW MY WORK</a>
+                <a href="index.html" class="btn home-btn">Back to Home</a>
             </div>
         </div>
+        <div class="image-container">
+            <img src="certification\photo.png" alt="Chavi Kant">
+        </div>
     </div>
+
 </body>
 </html>
