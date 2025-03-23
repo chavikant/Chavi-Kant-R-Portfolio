@@ -72,6 +72,11 @@ nav ul.active {
 }
 
 
+nav ul.active {
+    display: flex; /* Show when active */
+}
+
+
 nav ul li {
     display: inline;
 }
