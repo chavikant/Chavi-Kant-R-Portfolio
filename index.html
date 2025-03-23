@@ -12,7 +12,8 @@
     <header>
         <nav>
             <h1>Chavi Kant</h1>
-            <ul>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links">
                 <li><a href="about.html">About</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -23,25 +24,26 @@
             </ul>
         </nav>
     </header>
+
     <!-- Hero Section -->
     <section class="hero">
-        <h2>Welcome to My <span class="highlight">Portfolio</span></h2>
-        <p>A passionate developer exploring AI & Web Development.</p>
-        
-        <div class="buttons">
-            <a href="resume chavi kant.pdf" class="btn">Download Resume</a>
-                <!-- <img src="download.png" > Download Resume -->
-            </a>
-            <a href="https://github.com/chavikant" class="btn">GitHub</a>
-                <!-- <img src="GitHub.png" alt="GitHub">  -->
-            </a>
-            <a href="https://www.linkedin.com/in/chavi-kant-r-8b0644276/" class="btn">Linkedin</a>
-                <!-- <img src="linkedin.png" alt="LinkedIn"> -->
-            </a>
-            <a href="mailto:chavikant12@gmail.com" class="btn">E-Mail</a>
-                <!-- <img src="email.png" alt="Email">  -->
-            </a> 
+        <div class="container">
+            <h2>Welcome to My <span class="highlight">Portfolio</span></h2>
+            <p>A passionate developer exploring AI & Web Development.</p>
+
+            <div class="buttons">
+                <a href="resume chavi kant.pdf" class="btn">Download Resume</a>
+                <a href="https://github.com/chavikant" class="btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/chavi-kant-r-8b0644276/" class="btn">LinkedIn</a>
+                <a href="mailto:chavikant12@gmail.com" class="btn">E-Mail</a>
+            </div>
         </div>
     </section>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        }
+    </script>
 </body>
 </html>

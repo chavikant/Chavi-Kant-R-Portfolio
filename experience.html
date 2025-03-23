@@ -32,6 +32,7 @@
             border: 2px solid magenta;
             padding: 20px;
             width: 80%;
+            max-width: 600px;
             margin: 15px 0;
             box-shadow: 0 0 15px cyan;
             border-radius: 10px;
@@ -40,10 +41,73 @@
 
         .experience-card h2 {
             color: magenta;
+            font-size: 1.4em;
         }
 
         .experience-card p {
             color: white;
+            font-size: 1em;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(to right, cyan, magenta);
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .experience-card {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .experience-card h2 {
+                font-size: 1.2em;
+            }
+
+            .experience-card p {
+                font-size: 0.9em;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .experience-card {
+                width: 95%;
+                padding: 12px;
+            }
+
+            .experience-card h2 {
+                font-size: 1.1em;
+            }
+
+            .experience-card p {
+                font-size: 0.85em;
+            }
+
+            .btn {
+                padding: 8px 18px;
+                font-size: 0.85em;
+            }
         }
     </style>
 </head>

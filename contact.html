@@ -22,12 +22,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
 
         .contact-container {
             background: #1a1a1a;
             padding: 25px;
-            width: 420px;
+            width: 100%;
+            max-width: 420px;
             border-radius: 12px;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
             text-align: center;
@@ -104,32 +114,82 @@
         .error {
             color: red;
         }
+
+        .back-button {
+            margin-top: 20px;
+            background: linear-gradient(45deg, cyan, magenta);
+            color: black;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: none;
+            text-align: center;
+            width: auto;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .contact-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            input, textarea {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .back-button {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="contact-container">
-        <h2>Contact Me</h2>
-        <form id="contact-form" action="https://formsubmit.co/el/nabazu" method="POST">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <div class="wrapper">
+        <div class="contact-container">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="https://formsubmit.co/el/nabazu" method="POST">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-            <label for="company">Company Name</label>
-            <input type="text" id="company" name="company" placeholder="Your company name">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" placeholder="Your company name">
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
 
-            <!-- FormSubmit Hidden Fields -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://your-portfolio.com/thank-you.html">
-            
-            <button type="submit">Send Message</button>
-            <p id="response-message"></p>
-        </form>
+                <!-- FormSubmit Hidden Fields -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://your-portfolio.com/thank-you.html">
+                
+                <button type="submit">Send Message</button>
+                <p id="response-message"></p>
+            </form>
+        </div>
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
     </div>
 
     <script>
