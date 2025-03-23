@@ -34,72 +34,92 @@ header {
     width: 100%;
     padding: 15px 50px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     z-index: 100;
     border-bottom: 2px solid #00ffcc;
     transition: all 0.3s ease-in-out;
 }
 
-
-/* Navbar Title */
-/* Neon Glow Effect for Name */
+/* Name Animation (Hover Effect) */
 .nav-brand {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #00ffcc; /* Default Neon Blue */
-    text-shadow: 0 0 2px #00ffcc, 0 0 5px #00ffcc, 0 0 10px #00ffcc;
-    font-family: "Poppins", sans-serif;
-    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
+    cursor: pointer;
 }
 
-/* Hover Effect - Changes Color & Glow */
 .nav-brand:hover {
-    color: #ff00ff; /* Change to Neon Pink */
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-    transform: scale(1.1); /* Slight Zoom Effect */
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    transform: scale(1.1);
 }
 
+/* Navigation Links (Appearing Below the Name) */
+nav {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
 
-/* Navigation Links */
-nav ul {
+.nav-links {
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 20px;
+    padding: 10px 0;
 }
 
-nav ul li {
+/* Navigation Links Hover Animation */
+.nav-links li {
     position: relative;
 }
 
-nav ul li a {
+.nav-links a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 500;
-    transition: 0.3s ease;
-    position: relative;
+    transition: 0.3s ease-in-out;
     font-size: 16px;
+    padding: 5px 10px;
+    position: relative;
 }
 
-/* Neon Glow Effect on Hover */
-nav ul li a:hover {
-    color: #00ffcc;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-}
-
-/* Underline Effect */
-nav ul li a::after {
-    content: '';
+/* Underline Effect on Hover */
+.nav-links a::after {
+    content: "";
     display: block;
     width: 0;
     height: 2px;
-    background: cyan;
-    transition: width 0.3s ease-in-out;
+    background: #00ffcc;
+    transition: width 0.4s ease-in-out;
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
 }
 
-nav ul li a:hover::after {
+.nav-links a:hover::after {
     width: 100%;
+}
+
+/* Change text color and glow on hover */
+.nav-links a:hover {
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+/* Menu Button (For Mobile) */
+.menu-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: none;
 }
 
 /* Hero Section */
@@ -128,7 +148,7 @@ nav ul li a:hover::after {
     text-shadow: 0 0 10px #ff00ff;
 }
 
-/* Button - Neon Glowing Hover */
+/* Buttons */
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -152,12 +172,27 @@ nav ul li a:hover::after {
 /* Responsive Navbar */
 @media (max-width: 768px) {
     header {
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
         flex-direction: column;
         text-align: center;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 15px;
     }
 }
