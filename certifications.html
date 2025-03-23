@@ -94,6 +94,22 @@
             color: white;
             cursor: pointer;
         }
+
+        .back-button {
+            margin-top: 30px;
+            background: linear-gradient(45deg, cyan, magenta);
+            color: black;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
@@ -212,6 +228,7 @@
             <img src="certification\26.png" alt="Certificate 26">
         </div>
     </div>
+    <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
 
     <!-- Popup -->
     <div class="popup" id="popup">
