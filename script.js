@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const links = document.querySelectorAll("nav ul li a");
+    const toggleButton = document.getElementById("nav-toggle");
+    const navLinks = document.querySelector("nav ul");
+
     links.forEach(link => {
         link.addEventListener("click", function(e) {
             if (!this.getAttribute("href").endsWith(".html")) {
@@ -13,5 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 behavior: "smooth"
             });
         });
+    });
+
+    toggleButton.addEventListener("click", function() {
+        navLinks.classList.toggle("active");
     });
 });
