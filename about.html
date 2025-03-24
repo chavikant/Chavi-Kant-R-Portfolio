@@ -24,36 +24,35 @@
             padding-top: 80px; /* Adjusted padding to prevent content from being hidden */
         }
 
-        /* Navigation Bar */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background: #111;
-            padding: 15px;
+            padding: 15px 0;
             box-shadow: 0 0 15px cyan;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 20px;
         }
 
-        .menu-btn {
-            display: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            margin-right: 20px;
-        }
-
-        .nav-links {
+        .navbar ul {
             list-style: none;
             display: flex;
+            justify-content: center;
             gap: 30px;
+            padding: 0;
+            margin: 0;
         }
 
-        .nav-links li a {
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
@@ -63,9 +62,23 @@
             border-radius: 5px;
         }
 
-        .nav-links li a:hover {
+        .navbar ul li a:hover {
             color: cyan;
             text-shadow: 0 0 10px cyan;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 4px;
+            background: cyan;
+            margin: 5px 0;
         }
 
         /* About Section */
@@ -156,6 +169,29 @@
         .image-container img:hover {
             box-shadow: 0 0 25px cyan;
             transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #111;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px cyan;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
         }
 
         /* Responsive Design */
