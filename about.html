@@ -20,8 +20,8 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
-            padding-top: 60px;
+            min-height: 100vh;
+            padding-top: 80px; /* Adjusted padding to prevent content from being hidden */
         }
 
         /* Navigation Bar */
@@ -72,16 +72,19 @@
         .about-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 50px;
             background: #111;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
             max-width: 900px;
+            margin-top: 20px; /* Added margin-top to prevent overlap */
         }
 
         .about-content {
             flex: 1;
+            text-align: left;
         }
 
         .title {
@@ -142,9 +145,9 @@
         }
 
         .image-container img {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
+            width: 380px;
+            height: 680px;
+            border-radius: 0%;
             border: 1px solid rgb(2, 2, 2);
             box-shadow: 0 0 5px rgb(253, 255, 255);
             transition: 0.3s;
@@ -157,6 +160,10 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            body {
+                padding-top: 60px; /* Ensure enough spacing on smaller screens */
+            }
+
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -165,12 +172,12 @@
                 left: 0;
                 width: 100%;
                 background: rgba(0, 0, 0, 0.8);
+                padding: 10px 0;
+                text-align: center;
             }
 
             .nav-links.active {
                 display: flex;
-                text-align: center;
-                padding: 10px 0;
             }
 
             .menu-btn {
@@ -181,10 +188,12 @@
             .about-container {
                 flex-direction: column;
                 text-align: center;
+                margin-top: 40px; /* Ensures proper spacing */
             }
 
             .image-container img {
                 width: 250px;
+                height: auto;
             }
         }
     </style>
