@@ -13,46 +13,166 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: black;
             color: white;
             text-align: center;
             font-family: 'Arial', sans-serif;
         }
-        .container {
-            text-align: center;
-        }
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             background: linear-gradient(to right, cyan, magenta);
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .coming-soon {
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 20px;
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 90%;
+        }
+        .card {
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
+        }
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            padding: 15px;
+        }
+        .card-front {
+            background: linear-gradient(to right, cyan, magenta);
+            color: black;
+        }
+        .card-back {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            margin-top: 10px;
         }
         .btn {
-            padding: 10px 20px;
-            background: linear-gradient(to right, cyan, magenta);
+            padding: 10px 15px;
+            background: cyan;
             color: black;
             font-weight: bold;
             border-radius: 5px;
             text-decoration: none;
-            margin-top: 20px;
             display: inline-block;
+            margin-top: 10px;
         }
         .btn:hover {
-            background: linear-gradient(to right, magenta, cyan);
+            background: magenta;
+        }
+
+        @media (max-width: 600px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 My Projects</h1>
-        <p class="coming-soon">Coming Soon... Stay Tuned! ⚡</p>
-        <a href="index.html" class="btn">Back to Home</a>
+    <h1>🚀 My Projects</h1>
+    <div class="projects">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Scientific Calculator</h2>
+                    <img src="icons/cals.png" alt="Calculator" class="icon">
+                </div>
+                <div class="card-back">
+                    <h3>Tech Used</h3>
+                    <p>HTML and CSS</p>
+                    <a href="https://github.com/chavikant/Scientific-Calculator--HTML" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Python Calculator</h2>
+                    <img src="icons/pycals.png" alt="Python Calculator" class="icon">
+                </div>
+                <div class="card-back">
+                    <h3>Tech Used</h3>
+                    <p>Python</p>
+                    <a href="https://github.com/chavikant/PYTHON-Calculator" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>To-Do List App</h2>
+                    <img src="icons/todo.png" alt="To-Do List" class="icon">
+                </div>
+                <div class="card-back">
+                    <h3>Tech Used</h3>
+                    <p>Java, Android Studio</p>
+                    <a href="https://github.com/chavikant/To-Do-List-Java-App" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Weather App</h2>
+                    <img src="icons/weather.png" alt="Weather App" class="icon">
+                </div>
+                <div class="card-back">
+                    <h3>Tech Used</h3>
+                    <p>Java, Weather API</p>
+                    <a href="https://github.com/chavikant/Weather-App-Java" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Chatting App</h2>
+                    <img src="icons/chat.png" alt="Chatting App" class="icon">
+                </div>
+                <div class="card-back">
+                    <h3>Tech Used</h3>
+                    <p>Java, ZegoCloud</p>
+                    <a href="https://github.com/chavikant/Chatting-App-Java-Android" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <a href="index.html" class="btn">Back to Home</a>
 </body>
 </html>
