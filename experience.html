@@ -12,8 +12,9 @@
             font-family: 'Courier New', monospace;
             text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
+
         /* Navigation Bar */
         .navbar {
             position: fixed;
@@ -23,8 +24,11 @@
             background: #111;
             padding: 15px 0;
             box-shadow: 0 0 15px cyan;
-            text-align: center;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar ul {
@@ -32,6 +36,8 @@
             display: flex;
             justify-content: center;
             gap: 30px;
+            padding: 0;
+            margin: 0;
         }
 
         .navbar ul li {
@@ -53,10 +59,48 @@
             text-shadow: 0 0 10px cyan;
         }
 
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 4px;
+            background: cyan;
+            margin: 5px 0;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #111;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px cyan;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
         h1 {
             font-size: 2.5em;
             text-shadow: 0 0 10px magenta;
-            margin-top: 80px;
+            margin-top: 100px;
         }
 
         .experience-container {
@@ -64,6 +108,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .experience-card {
@@ -110,11 +155,6 @@
                 width: 90%;
                 padding: 15px;
             }
-
-            .navbar a {
-                font-size: 1em;
-                padding: 8px 15px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -126,17 +166,17 @@
                 width: 95%;
                 padding: 12px;
             }
-
-            .navbar a {
-                font-size: 0.9em;
-                padding: 6px 12px;
-            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="experience.html">Experience</a></li>
@@ -179,5 +219,12 @@
         </div>
         <a href="index.html" class="btn">Back to Home</a>
     </div>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-links");
+            nav.classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
