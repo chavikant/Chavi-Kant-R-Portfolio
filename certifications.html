@@ -23,91 +23,12 @@
             animation: glow 1.5s infinite alternate;
             margin-top: 100px;
         }
-        .nav-menu {
-    display: none;
-    position: absolute;
-    top: 60px; /* Adjust as needed */
-    left: 0;
-    width: 100%;
-    background: black;
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-menu.active {
-    display: block;
-}
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0;
-            margin: 0;
-        }
-
-        .navbar ul li {
-            display: inline;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            transition: 0.3s;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .navbar ul li a:hover {
-            color: cyan;
-            text-shadow: 0 0 10px cyan;
-        }
-
-        /* Hamburger Menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle div {
-            width: 30px;
-            height: 4px;
-            background: cyan;
-            margin: 5px 0;
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                display: none;
-                flex-direction: column;
-                background: #111;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-shadow: 0 5px 10px cyan;
-            }
-
-            .navbar ul.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
+        
         @keyframes glow {
             from { text-shadow: 0 0 10px #0ff; }
             to { text-shadow: 0 0 20px #0ff, 0 0 30px #00f; }
         }
         
-
         /* Navigation Bar */
         .navbar {
             position: fixed;
@@ -146,8 +67,21 @@
             color: cyan;
             text-shadow: 0 0 10px cyan;
         }
-        
-        
+
+        .navbar-toggle {
+            display: none; /* Hide by default */
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .navbar-toggle div {
+            width: 30px;
+            height: 4px;
+            background: cyan;
+            margin: 5px 0;
+        }
+
+        /* Content Styles */
         .content {
             font-size: 1.2rem;
             margin: 20px auto;
@@ -190,10 +124,10 @@
         .popup {
             display: none;
             position: fixed;
-            top: 0;
+            top: 60px; /* Adjusted to be below the navbar */
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 60px); /* Adjusted height */
             background: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
@@ -230,6 +164,25 @@
             transform: scale(1.1);
         }
 
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none; /* Hide menu items by default */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px; /* Below the navbar */
+                left: 0;
+                background: #111;
+            }
+
+            .navbar ul.active {
+                display: flex; /* Show menu items when active */
+            }
+
+            .navbar-toggle {
+                display: flex; /* Show toggle button on mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -252,7 +205,6 @@
         </ul>
     </nav>
 
-
     <h1>My Certificates & Achievements</h1>
 
     <div class="content">
@@ -260,147 +212,110 @@
     </div>
 
     <div class="certificates">
-<div class="cert-card" onclick="showPopup('certification/1.png')">
-
-            <img src="certification\1.png" alt="Certificate 1">
-
+        <div class="cert-card" onclick="showPopup('certification/1.png')">
+            <img src="certification/1.png" alt="Certificate 1">
         </div>
-<div class="cert-card" onclick="showPopup('certification/2.png')">
-
-            <img src="certification\2.png" alt="Certificate 2">
+        <div class="cert-card" onclick="showPopup('certification/2.png')">
+            <img src="certification/2.png" alt="Certificate 2">
         </div>
-<div class="cert-card" onclick="showPopup('certification/3.png')">
-
-            <img src="certification\3.png" alt="Certificate 3">
+        <div class="cert-card" onclick="showPopup('certification/3.png')">
+            <img src="certification/3.png" alt="Certificate 3">
         </div>
-<div class="cert-card" onclick="showPopup('certification/4.png')">
-
-            <img src="certification\4.png" alt="Certificate 4">
+        <div class="cert-card" onclick="showPopup('certification/4.png')">
+            <img src="certification/4.png" alt="Certificate 4">
         </div>
-<div class="cert-card" onclick="showPopup('certification/5.png')">
-
-            <img src="certification\5.png" alt="Certificate 5">
+        <div class="cert-card" onclick="showPopup('certification/5.png')">
+            <img src="certification/5.png" alt="Certificate 5">
         </div>
-<div class="cert-card" onclick="showPopup('certification/6.png')">
-
-            <img src="certification\6.png" alt="Certificate 6">
+        <div class="cert-card" onclick="showPopup('certification/6.png')">
+            <img src="certification/6.png" alt="Certificate 6">
         </div>
-<div class="cert-card" onclick="showPopup('certification/7.png')">
-
-            <img src="certification\7.png" alt="Certificate 7">
+        <div class="cert-card" onclick="showPopup('certification/7.png')">
+            <img src="certification/7.png" alt="Certificate 7">
         </div>
-<div class="cert-card" onclick="showPopup('certification/8.png')">
-
-            <img src="certification\8.png" alt="Certificate 8">
+        <div class="cert-card" onclick="showPopup('certification/8.png')">
+            <img src="certification/8.png" alt="Certificate 8">
         </div>
-<div class="cert-card" onclick="showPopup('certification/9.png')">
-
-            <img src="certification\9.png" alt="Certificate 9">
+        <div class="cert-card" onclick="showPopup('certification/9.png')">
+            <img src="certification/9.png" alt="Certificate 9">
         </div>
-<div class="cert-card" onclick="showPopup('certification/10.png')">
-
-            <img src="certification\10.png" alt="Certificate 10">
+        <div class="cert-card" onclick="showPopup('certification/10.png')">
+            <img src="certification/10.png" alt="Certificate 10">
         </div>
-<div class="cert-card" onclick="showPopup('certification/11.png')">
-
-            <img src="certification\11.png" alt="Certificate 11">
+        <div class="cert-card" onclick="showPopup('certification/11.png')">
+            <img src="certification/11.png" alt="Certificate 11">
         </div>
-<div class="cert-card" onclick="showPopup('certification/12.png')">
-
-            <img src="certification\12.png" alt="Certificate 12">
+        <div class="cert-card" onclick="showPopup('certification/12.png')">
+            <img src="certification/12.png" alt="Certificate 12">
         </div>
-<div class="cert-card" onclick="showPopup('certification/13.png')">
-
-            <img src="certification\13.png" alt="Certificate 13">
+        <div class="cert-card" onclick="showPopup('certification/13.png')">
+            <img src="certification/13.png" alt="Certificate 13">
         </div>
-<div class="cert-card" onclick="showPopup('certification/14.png')">
-
-            <img src="certification\14.png" alt="Certificate 14">
+        <div class="cert-card" onclick="showPopup('certification/14.png')">
+            <img src="certification/14.png" alt="Certificate 14">
         </div>
-<div class="cert-card" onclick="showPopup('certification/15.png')">
-
-            <img src="certification\15.png" alt="Certificate 15">
+        <div class="cert-card" onclick="showPopup('certification/15.png')">
+            <img src="certification/15.png" alt="Certificate 15">
         </div>
-<div class="cert-card" onclick="showPopup('certification/16.png')">
-
-            <img src="certification\16.png" alt="Certificate 16">
+        <div class="cert-card" onclick="showPopup('certification/16.png')">
+            <img src="certification/16.png" alt="Certificate 16">
         </div>
-<div class="cert-card" onclick="showPopup('certification/17.png')">
-
-            <img src="certification\17.png" alt="Certificate 17">
+        <div class="cert-card" onclick="showPopup('certification/17.png')">
+            <img src="certification/17.png" alt="Certificate 17">
         </div>
-<div class="cert-card" onclick="showPopup('certification/18.png')">
-
-            <img src="certification\18.png" alt="Certificate 18">
+        <div class="cert-card" onclick="showPopup('certification/18.png')">
+            <img src="certification/18.png" alt="Certificate 18">
         </div>
-<div class="cert-card" onclick="showPopup('certification/19.png')">
-
-            <img src="certification\19.png" alt="Certificate 19">
+        <div class="cert-card" onclick="showPopup('certification/19.png')">
+            <img src="certification/19.png" alt="Certificate 19">
         </div>
-<div class="cert-card" onclick="showPopup('certification/20.png')">
-
-            <img src="certification\20.png" alt="Certificate 20">
-
+        <div class="cert-card" onclick="showPopup('certification/20.png')">
+            <img src="certification/20.png" alt="Certificate 20">
         </div>
-<div class="cert-card" onclick="showPopup('certification/21.png')">
-
-            <img src="certification\21.png" alt="Certificate 21">
+        <div class="cert-card" onclick="showPopup('certification/21.png')">
+            <img src="certification/21.png" alt="Certificate 21">
         </div>
-<div class="cert-card" onclick="showPopup('certification/22.png')">
-
-            <img src="certification\22.png" alt="Certificate 22">
+        <div class="cert-card" onclick="showPopup('certification/22.png')">
+            <img src="certification/22.png" alt="Certificate 22">
         </div>
-<div class="cert-card" onclick="showPopup('certification/23.png')">
-
-            <img src="certification\23.png" alt="Certificate 23">
+        <div class="cert-card" onclick="showPopup('certification/23.png')">
+            <img src="certification/23.png" alt="Certificate 23">
         </div>
-<div class="cert-card" onclick="showPopup('certification/24.png')">
-
-            <img src="certification\24.png" alt="Certificate 24">
+        <div class="cert-card" onclick="showPopup('certification/24.png')">
+            <img src="certification/24.png" alt="Certificate 24">
         </div>
-<div class="cert-card" onclick="showPopup('certification/25.png')">
-
-            <img src="certification\25.png" alt="Certificate 25">
+        <div class="cert-card" onclick="showPopup('certification/25.png')">
+            <img src="certification/25.png" alt="Certificate 25">
         </div>
-<div class="cert-card" onclick="showPopup('certification/26.png')">
-
-            <img src="certification\26.png" alt="Certificate 26">
+        <div class="cert-card" onclick="showPopup('certification/26.png')">
+            <img src="certification/26.png" alt="Certificate 26">
         </div>
     </div>
-    <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+
 
     <!-- Popup -->
     <div class="popup" id="popup">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <img id="popup-img">
+        <span class="close" onclick="closePopup()" style="z-index: 1001;">&times;</span>
+        <img id="popup-img" style="max-width: 100%; max-height: 100%;">
     </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-    const navLinks = document.querySelectorAll(".nav-menu a");
+    <script>
+        function toggleNavbar() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
 
-    // Toggle menu on click
-    menuToggle.addEventListener("click", function () {
-        navMenu.classList.toggle("active");
-    });
+        function showPopup(imgSrc) {
+            document.getElementById('popup-img').src = imgSrc;
+            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('popup').style.transition = 'transform 0.3s ease';
+            document.getElementById('popup').style.transform = 'scale(1)';
+        }
 
-    // Close menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-            navMenu.classList.remove("active");
-        });
-    });
-
-    // Close menu on page load
-    window.addEventListener("load", function () {
-        navMenu.classList.remove("active");
-    });
-});
-
-</script>
-    
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
