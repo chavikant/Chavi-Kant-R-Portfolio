@@ -40,6 +40,10 @@
             box-shadow: 0 0 15px cyan;
             text-align: center;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar ul {
@@ -47,6 +51,8 @@
             display: flex;
             justify-content: center;
             gap: 30px;
+            padding: 0;
+            margin: 0;
         }
 
         .navbar ul li {
@@ -68,13 +74,13 @@
             text-shadow: 0 0 10px cyan;
         }
 
-        .navbar-toggle {
+        .menu-toggle {
             display: none; /* Hide by default */
             flex-direction: column;
             cursor: pointer;
         }
 
-        .navbar-toggle div {
+        .menu-toggle div {
             width: 30px;
             height: 4px;
             background: cyan;
@@ -179,7 +185,7 @@
                 display: flex; /* Show menu items when active */
             }
 
-            .navbar-toggle {
+            .menu-toggle {
                 display: flex; /* Show toggle button on mobile */
             }
         }
@@ -292,7 +298,6 @@
         </div>
     </div>
 
-
     <!-- Popup -->
     <div class="popup" id="popup">
         <span class="close" onclick="closePopup()" style="z-index: 1001;">&times;</span>
@@ -304,7 +309,6 @@
             var nav = document.getElementById("nav-links");
             nav.classList.toggle("active");
         }
-
 
         function showPopup(imgSrc) {
             document.getElementById('popup-img').src = imgSrc;
