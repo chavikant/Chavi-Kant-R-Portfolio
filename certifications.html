@@ -300,10 +300,11 @@
     </div>
 
     <script>
-        function toggleNavbar() {
-            const menu = document.querySelector('.navbar-menu');
-            menu.classList.toggle('active');
+        function toggleMenu() {
+            var nav = document.getElementById("nav-links");
+            nav.classList.toggle("active");
         }
+
 
         function showPopup(imgSrc) {
             document.getElementById('popup-img').src = imgSrc;
