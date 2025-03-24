@@ -10,6 +10,45 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+        }
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #111;
+            padding: 15px 0;
+            box-shadow: 0 0 15px cyan;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
         }
         .container {
             display: flex;
@@ -55,7 +94,22 @@
     </style>
 </head>
 <body>
-    <h1 style="background: linear-gradient(45deg, cyan, magenta); padding: 10px; border-radius: 10px; display: inline-block;">My Events</h1>
+
+    <!-- Menu Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="volunteer.html">Volunteer Work</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1 style="background: linear-gradient(45deg, cyan, magenta); padding: 10px; border-radius: 10px; display: inline-block;  margin-top: 100px;">My Events</h1>
     
     <div class="container">
         <div class="event-card">
@@ -79,7 +133,7 @@
         <div class="event-card">
             <h2>I/O Extended Workhop in 2024</h2>
             <p>Date: May 2024</p>
-            <p>Attended I/O Extended Workshop in 2024, where I learned about the latest advancements in various fileds.</p>
+            <p>Attended I/O Extended Workshop in 2024, where I learned about the latest advancements in various fields.</p>
             <a href="https://www.linkedin.com/posts/chavi-kant-r-8b0644276_datascience-machinelearning-bigdata-activity-7203040169862602754-mbkn?utm_source=share&utm_medium=member_desktop&rcm=ACoAAENezAQBIq2RUViRT4as2y0rEWkgDjEEIRk">View LinkedIn Post</a>
         </div>
         <div class="event-card">
@@ -91,23 +145,12 @@
         <div class="event-card">
             <h2>Presenting our Research Paper</h2>
             <p>Date: January 2025</p>
-            <p> My amazing journey of presenting our research paper, *"Curbing Counterfeit Pharma Drugs with Holographic Labels and SIFT Algorithm"*</p>
+            <p>My amazing journey of presenting our research paper, *"Curbing Counterfeit Pharma Drugs with Holographic Labels and SIFT Algorithm"*</p>
             <a href="https://www.linkedin.com/posts/chavi-kant-r-8b0644276_research-innovation-pharmaceuticalsecurity-activity-7293863659808636928-BQs9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAENezAQBIq2RUViRT4as2y0rEWkgDjEEIRk">View LinkedIn Post</a>
-        </div>
-        <div class="event-card">
-            <h2>Co-Lead for the App Developer</h2>
-            <p>Date: September 2024</p>
-            <p>I have been selected as the Co-Lead for the App Developer domain at Google Developer Group (GDG) on campus at Jansons Institute of Technology!</p>
-            <a href="https://www.linkedin.com/posts/chavi-kant-r-8b0644276_gdg-appdevelopment-techcommunity-activity-7246823888930660352-kRa0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAENezAQBIq2RUViRT4as2y0rEWkgDjEEIRk">View LinkedIn Post</a>
-        </div>
-        <div class="event-card">
-            <h2>Speaker</h2>
-            <p>Date: November 2024</p>
-            <p> I had the incredible opportunity to be a speaker at a career guidance and learning event for the talented students of Holy Rosary School. </p>
-            <a href="https://www.linkedin.com/posts/chavi-kant-r-8b0644276_careerguidance-studentsuccess-educationmatters-activity-7269182242906673152-kkJj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAENezAQBIq2RUViRT4as2y0rEWkgDjEEIRk">View LinkedIn Post</a>
         </div>
     </div>
 
     <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+
 </body>
 </html>

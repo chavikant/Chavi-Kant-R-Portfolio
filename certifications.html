@@ -28,6 +28,47 @@
             to { text-shadow: 0 0 20px #0ff, 0 0 30px #00f; }
         }
         
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #111;
+            padding: 15px 0;
+            box-shadow: 0 0 15px cyan;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+        }
+        
+        
         .content {
             font-size: 1.2rem;
             margin: 20px auto;
@@ -114,6 +155,18 @@
 </head>
 <body>
 
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="volunteer.html">Volunteer Work</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
     <h1>My Certificates & Achievements</h1>
 
     <div class="content">

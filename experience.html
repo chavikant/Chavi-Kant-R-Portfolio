@@ -14,10 +14,49 @@
             margin: 0;
             padding: 20px;
         }
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #111;
+            padding: 15px 0;
+            box-shadow: 0 0 15px cyan;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+        }
 
         h1 {
             font-size: 2.5em;
             text-shadow: 0 0 10px magenta;
+            margin-top: 80px;
         }
 
         .experience-container {
@@ -72,17 +111,9 @@
                 padding: 15px;
             }
 
-            .experience-card h2 {
-                font-size: 1.2em;
-            }
-
-            .experience-card p {
-                font-size: 0.9em;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9em;
+            .navbar a {
+                font-size: 1em;
+                padding: 8px 15px;
             }
         }
 
@@ -96,22 +127,26 @@
                 padding: 12px;
             }
 
-            .experience-card h2 {
-                font-size: 1.1em;
-            }
-
-            .experience-card p {
-                font-size: 0.85em;
-            }
-
-            .btn {
-                padding: 8px 18px;
-                font-size: 0.85em;
+            .navbar a {
+                font-size: 0.9em;
+                padding: 6px 12px;
             }
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="volunteer.html">Volunteer Work</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
     <h1>Experience</h1>
 
@@ -144,6 +179,5 @@
         </div>
         <a href="index.html" class="btn">Back to Home</a>
     </div>
-
 </body>
 </html>
