@@ -21,7 +21,7 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
-            padding-top: 60px; /* To prevent content from being hidden behind the navbar */
+            padding-top: 60px;
         }
 
         /* Navigation Bar */
@@ -31,27 +31,29 @@
             left: 0;
             width: 100%;
             background: #111;
-            padding: 15px 0;
+            padding: 15px;
             box-shadow: 0 0 15px cyan;
-            text-align: center;
             z-index: 1000;
             display: flex;
-            flex-wrap: wrap;
-
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .navbar ul {
+        .menu-btn {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .nav-links {
             list-style: none;
             display: flex;
-            justify-content: center;
             gap: 30px;
         }
 
-        .navbar ul li {
-            display: inline;
-        }
-
-        .navbar ul li a {
+        .nav-links li a {
             text-decoration: none;
             font-size: 16px;
             font-weight: bold;
@@ -61,7 +63,7 @@
             border-radius: 5px;
         }
 
-        .navbar ul li a:hover {
+        .nav-links li a:hover {
             color: cyan;
             text-shadow: 0 0 10px cyan;
         }
@@ -78,10 +80,8 @@
             max-width: 900px;
         }
 
-        /* Left Side Content */
         .about-content {
             flex: 1;
-            text-align: left;
         }
 
         .title {
@@ -110,7 +110,6 @@
         .btn {
             display: inline-block;
             padding: 12px 20px;
-            margin: 10px 10px 0 0;
             text-decoration: none;
             font-size: 14px;
             font-weight: bold;
@@ -137,14 +136,13 @@
             box-shadow: 0 0 20px violet;
         }
 
-        /* Right Side Image */
         .image-container {
             flex: 1;
             text-align: center;
         }
 
         .image-container img {
-            width: 380px ;
+            width: 380px;
             height: 680px;
             border-radius: 0%;
             border: 1px solid rgb(2, 2, 2);
@@ -159,40 +157,44 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-        flex-direction: column;
-    }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8);
+            }
 
-    .menu-btn {
-        display: block;
-    }
+            .nav-links.active {
+                display: flex;
+                text-align: center;
+                padding: 10px 0;
+            }
 
-    .nav-links {
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: none;
-    }
+            .menu-btn {
+                display: block;
+                margin-left: auto;
+            }
 
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-}
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-container img {
+                width: 250px;
+                height: auto;
+            }
+        }
     </style>
-
-<script defer src="script.js"></script>
 </head>
 <body>
-
     <!-- Navigation Menu -->
     <nav class="navbar">
-        <ul>
+        <span class="menu-btn">&#9776;</span>
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="experience.html">Experience</a></li>
@@ -220,9 +222,12 @@
         <div class="image-container">
             <img src="certification/photo.png" alt="Chavi Kant">
         </div>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
     </div>
 
+    <script>
+        document.querySelector(".menu-btn").addEventListener("click", () => {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
