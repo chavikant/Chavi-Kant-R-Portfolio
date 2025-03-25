@@ -105,7 +105,7 @@
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding: 20px;
             max-width: 90%;
@@ -114,9 +114,11 @@
 
         .card {
             width: 100%;
-            height: 300px;
+            max-width: 350px;
+            height: 320px;
             perspective: 1000px;
             transition: transform 0.3s ease-in-out;
+            margin: auto;
         }
 
         .card:hover {
@@ -264,7 +266,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -278,7 +280,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -292,14 +294,12 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
     <script>
         function toggleMenu() {
-            var nav = document.getElementById("nav-links");
-            nav.classList.toggle("active");
+            document.getElementById("nav-links").classList.toggle("active");
         }
     </script>
 </body>
-</html>
+</html
