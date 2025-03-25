@@ -207,23 +207,44 @@
                 display: flex;
             }
         }
-        @media (max-width: 600px) {
-            .card {
-                height: auto; /* Ensure cards are flexible on small screens */
-            }
+        @media (max-width: 768px) {
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .projects {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px;
-            }
-        }
+    .card {
+        width: 90%; /* Makes cards fit better on small screens */
+        height: auto;
+    }
+
+    .card-inner {
+        text-align: center;
+    }
+
+    .card h2 {
+        font-size: 1.5rem; /* Adjust title size */
+    }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Fix navbar */
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+}
+
     </style>
 </head>
 <body>
