@@ -194,7 +194,7 @@
                 font-size: 2rem;
             }
 
-            .navbar {
+            .navbar.active {
                 flex-direction: column;
                 gap: 10px;
             }
@@ -298,7 +298,8 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById("nav-links").classList.toggle("active");
+            document.getElementById("nav-links");
+            classList.toggle("active");
         }
     </script>
 </body>
