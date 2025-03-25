@@ -17,6 +17,13 @@ body {
     animation: gradientBG 10s ease infinite;
     color: #ffffff;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 50px 20px; /* Adjusted padding */
 }
 
 @keyframes gradientBG {
@@ -135,6 +142,8 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px #00ffcc;
+    font-size: 2.2rem;
+
 }
 
 .hero p {
@@ -152,7 +161,7 @@ nav {
 .btn {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 20px;
+    padding: 14px 24px;
     background: linear-gradient(90deg, cyan, magenta);
     color: #0d0d0d;
     font-weight: 600;
@@ -161,6 +170,7 @@ nav {
     border-radius: 8px;
     transition: 0.3s ease-in-out;
     box-shadow: 0 0 10px cyan;
+    font-size: 1rem;
 }
 
 .btn:hover {
@@ -169,71 +179,6 @@ nav {
     color: #ffffff;
 }
 
-
-/* Quotes Section */
-.quotes {
-    padding: 50px;
-    text-align: center;
-}
-
-/* .quotes h2 {
-    font-size: 2.5rem;
-    text-shadow: 0 0 12px cyan;
-    margin-top: -90px;
-} */
-
-.quote-box1 {
-    background: rgba(0, 0, 0, 0.8);
-    border-left: 4px solid cyan;
-    padding: 20px;
-    margin: 20px auto;
-    width: 60%;
-    border-radius: 10px;
-    box-shadow: 0 0 12px cyan;
-    margin-top: -70px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
-
-}
-
-.quote-box2 {
-    background: rgba(0, 0, 0, 0.8);
-    border-left: 4px solid cyan;
-    padding: 20px;
-    margin: 20px auto;
-    width: 60%;
-    border-radius: 10px;
-    box-shadow: 0 0 12px cyan;
-    margin-top: -10px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
-
-}
-
-.quote-box1:hover {
-    transform: scale(1.05);  /* Slight pop effect */
-    box-shadow: 0 0 20px magenta; /* Neon glow on hover */
-    border-left-color: magenta; /* Change border color */
-    background: rgba(0, 0, 0, 0.9); /* Slightly darken background */
-}
-
-.quote-box2:hover {
-    transform: scale(1.05);  /* Slight pop effect */
-    box-shadow: 0 0 20px magenta; /* Neon glow on hover */
-    border-left-color: magenta; /* Change border color */
-    background: rgba(0, 0, 0, 0.9); /* Slightly darken background */
-}
-
-
-.quote-box1 p {
-    font-size: 1.8rem;
-    color: #00ffcc;
-    transition: color 0.3s ease-in-out;
-}
-
-.quote-box2 p {
-    font-size: 1.8rem;
-    color: #00ffcc;
-    transition: color 0.3s ease-in-out;
-}
 
 
 
@@ -265,12 +210,4 @@ nav {
         text-align: center;
     }
 }
-@media (max-width: 768px) {
-    .quote-box1 {
-        width: 90%;
-    }
 
-    .quote-box2 {
-        width: 90%;
-    }
-}
