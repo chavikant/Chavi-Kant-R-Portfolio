@@ -1,229 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - Chavi Kant</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: black;
-            color: cyan;
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience – Chavi Kant</title>
+  <style>
+    /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background:#000; color:#0ff;
+      font-family:'Poppins',sans-serif;
+      line-height:1.6;
+    }
+    a { color:inherit; text-decoration:none; }
+    ul { list-style:none; }
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #111;
-            padding: 15px 0;
-            box-shadow: 0 0 15px cyan;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
+    /* Navbar */
+    header {
+      background:#111; position:sticky; top:0; z-index:1000;
+      box-shadow:0 0 15px #0ff;
+    }
+    .nav-container {
+      max-width:1200px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 2rem;
+    }
+    .nav-brand {
+      font-size:1.5rem; font-weight:700; color:#f0f;
+    }
+    .nav-links { display:flex; gap:1.5rem; }
+    .nav-links a {
+      font-weight:500; padding:0.5rem; transition:color .3s, text-shadow .3s;
+    }
+    .nav-links a:hover {
+      color:#0ff; text-shadow:0 0 8px #0ff;
+    }
+    .menu-btn {
+      display:none; background:none; border:none;
+      font-size:1.5rem; color:#0ff; cursor:pointer;
+    }
+    @media(max-width:768px){
+      .nav-links {
+        position:absolute; top:60px; right:0; background:#111;
+        flex-direction:column; width:200px; display:none;
+        box-shadow:0 5px 15px #0ff;
+      }
+      .nav-links.open { display:flex; }
+      .menu-btn { display:block; }
+    }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0;
-            margin: 0;
-        }
+    /* Page Title */
+    .page-title {
+      text-align:center; margin:4rem 0 2rem;
+      font-size:2.5rem; color:#f0f;
+      text-shadow:0 0 10px #f0f;
+    }
 
-        .navbar ul li {
-            display: inline;
-        }
+    /* Experience Cards */
+    .experience-container {
+      display:flex; flex-wrap:wrap;
+      justify-content:center; gap:2rem; padding:0 1rem 4rem;
+    }
 
-        .navbar ul li a {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            transition: 0.3s;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
+    .experience-card {
+      position:relative;
+      width:300px; height:350px;
+      background:rgba(20,20,20,0.9);
+      border:2px solid #f0f; border-radius:10px;
+      overflow:hidden; box-shadow:0 0 15px #0ff;
+      transition:transform .3s;
+    }
+    .experience-card:hover {
+      transform:translateY(-5px);
+    }
 
-        .navbar ul li a:hover {
-            color: cyan;
-            text-shadow: 0 0 10px cyan;
-        }
+    /* Card Front */
+    .card-front {
+      position:absolute; inset:0;
+      padding:1.5rem;
+      display:flex; flex-direction:column; justify-content:flex-end;
+    }
+    .card-front h2 {
+      color:#f0f; margin-bottom:.5rem; font-size:1.3rem;
+    }
+    .card-front .meta {
+      color:#0ff; font-size:.9rem; margin-bottom:.3rem;
+    }
+    .card-front .location {
+      color:#aaa; font-size:.85rem;
+    }
 
-        /* Hamburger Menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+    /* Hover Overlay */
+    .card-overlay {
+      position:absolute; inset:0;
+      background:rgba(0,255,255,0.1);
+      backdrop-filter:blur(4px);
+      color:#fff; padding:1.5rem;
+      opacity:0; transition:opacity .3s;
+      display:flex; flex-direction:column;
+    }
+    .experience-card:hover .card-overlay {
+      opacity:1;
+    }
+    .card-overlay h3 {
+      color:#0ff; margin-bottom:1rem; text-align:center;
+    }
+    .card-overlay ul {
+      list-style:disc inside;
+      margin-left:0.5rem;
+    }
+    .card-overlay li {
+      margin-bottom:0.75rem;
+      font-size:.95rem;
+      line-height:1.4;
+    }
 
-        .menu-toggle div {
-            width: 30px;
-            height: 4px;
-            background: cyan;
-            margin: 5px 0;
-        }
-
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            .navbar ul {
-                display: none;
-                flex-direction: column;
-                background: #111;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-shadow: 0 5px 10px cyan;
-            }
-
-            .navbar ul.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            text-shadow: 0 0 10px magenta;
-            margin-top: 100px;
-        }
-
-        .experience-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .experience-card {
-            background: rgba(20, 20, 20, 0.8);
-            border: 2px solid magenta;
-            padding: 20px;
-            width: 80%;
-            max-width: 600px;
-            margin: 15px 0;
-            box-shadow: 0 0 15px cyan;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .experience-card h2 {
-            color: magenta;
-            font-size: 1.4em;
-        }
-
-        .experience-card p {
-            color: white;
-            font-size: 1em;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: linear-gradient(to right, cyan, magenta);
-            color: black;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1em;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .experience-card {
-                width: 90%;
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .experience-card {
-                width: 95%;
-                padding: 12px;
-            }
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="volunteer.html">Volunteer Work</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="contact.html">Contact</a></li>
+
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="nav-brand">Chavi Kant R</div>
+      <button class="menu-btn" id="nav-toggle">☰</button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Skills.html">Skills</a></li>
+          <li><a href="myblueprint.html">My-BluePrint</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-    <h1>Experience</h1>
+  <!-- Title -->
+  <h1 class="page-title">Experience</h1>
 
-    <div class="experience-container">
-        <div class="experience-card">
-            <h2>Google Developer Group - Co-Lead</h2>
-            <p><strong>September 2024 - Present (7 months)</strong></p>
-            <p>Tamil Nadu, India</p>
-            <p>Co-leading the GDG App Development team, organizing events, and mentoring developers.</p>
-        </div>
+  <!-- Experience Cards -->
+  <div class="experience-container">
 
-        <div class="experience-card">
-            <h2>JIT IEEE & WIE Student Branch - Joint Secretary</h2>
-            <p><strong>June 2024 - Present (10 months)</strong></p>
-            <p>Coimbatore, Tamil Nadu, India</p>
-            <p>Managing IEEE student activities, technical events, and research initiatives.</p>
-        </div>
-
-        <div class="experience-card">
-            <h2>GAOTek Inc. - Web Developer</h2>
-            <p><strong>June 2024 - September 2024 (3 months)</strong></p>
-            <p>Developed and optimized web solutions for the company, focusing on UI/UX and responsive design.</p>
-        </div>
-
-        <div class="experience-card">
-            <h2>ELGI Equipments Limited - Intern</h2>
-            <p><strong>March 2024 - June 2024 (3 months)</strong></p>
-            <p>Coimbatore, Tamil Nadu, India</p>
-            <p>Worked on software and system integration projects, gaining industry experience.</p>
-        </div>
+    <!-- ELGI Equipments Limited -->
+    <div class="experience-card">
+      <div class="card-front">
+        <h2>ELGI Equipments Ltd.</h2>
+        <div class="meta">Web Developer Intern</div>
+        <div class="meta">March 2024 – June 2024</div>
+        <div class="location">Coimbatore, India</div>
+      </div>
+      <div class="card-overlay">
+        <h3>Role & Responsibilities</h3>
+        <ul>
+          <li>Implemented cost-effective solutions, resulting in a 20% reduction in project expenses.</li>
+          <li>Streamlined project workflows, enhancing overall efficiency by 25%.</li>
+          <li>Led a team in successfully delivering a complex engineering project on time and within budget.</li>
+        </ul>
+      </div>
     </div>
 
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("nav-links");
-            nav.classList.toggle("active");
-        }
-    </script>
+    <!-- GAOTek Inc. -->
+    <div class="experience-card">
+      <div class="card-front">
+        <h2>GAOTek Inc.</h2>
+        <div class="meta">Web Developer Intern</div>
+        <div class="meta">June 2024 – September 2024</div>
+        <div class="location">Coimbatore, India</div>
+      </div>
+      <div class="card-overlay">
+        <h3>Role & Responsibilities</h3>
+        <ul>
+          <li>Managed project timelines, reducing delivery times by 30%.</li>
+          <li>Spearheaded the adoption of cutting-edge engineering software, improving accuracy by 15%.</li>
+          <li>Collaborated with cross-functional teams, enhancing project success rates by 10%.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>

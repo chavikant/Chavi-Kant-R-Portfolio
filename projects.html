@@ -1,327 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Chavi Kant</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Chavi Kant</title>
+  <style>
+    /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background:#000; color:#0ff;
+      font-family:'Poppins',sans-serif;
+      line-height:1.6;
+    }
+    a { color:inherit; text-decoration:none; }
+    ul { list-style:none; }
 
-        /* Navigation Bar */
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #111;
-            padding: 15px 0;
-            box-shadow: 0 0 15px cyan;
-            text-align: center;
-            z-index: 1000;
-        }
+    /* Navbar */
+    header {
+      background:#111; position:sticky; top:0; z-index:1000;
+      box-shadow:0 0 15px #0ff;
+    }
+    .nav-container {
+      max-width:1200px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 2rem;
+    }
+    .nav-brand {
+      font-size:1.5rem; font-weight:700; color:#f0f;
+    }
+    .nav-links { display:flex; gap:1.5rem; }
+    .nav-links a {
+      font-weight:500; padding:0.5rem; transition:color .3s, text-shadow .3s;
+    }
+    .nav-links a:hover {
+      color:#0ff; text-shadow:0 0 8px #0ff;
+    }
+    .menu-btn {
+      display:none; background:none; border:none;
+      font-size:1.5rem; color:#0ff; cursor:pointer;
+    }
+    @media(max-width:768px){
+      .nav-links {
+        position:absolute; top:60px; right:0; background:#111;
+        flex-direction:column; width:200px; display:none;
+        box-shadow:0 5px 15px #0ff;
+      }
+      .nav-links.open { display:flex; }
+      .menu-btn { display:block; }
+    }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
+    /* Page Title */
+    h1 {
+      text-align:center; margin:4rem 0 2rem;
+      font-size:2.5rem; color:#f0f;
+      text-shadow:0 0 10px #f0f;
+    }
 
-        .navbar ul li {
-            display: inline;
-        }
+    /* Project Cards */
+    .projects {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:20px;
+      max-width:90%;
+      margin:auto;
+    }
 
-        .navbar ul li a {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            transition: 0.3s;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
+    .card {
+      width:100%; height:300px;
+      perspective:1000px;
+    }
 
-        .navbar ul li a:hover {
-            color: cyan;
-            text-shadow: 0 0 10px cyan;
-        }
-        h1 {
-            margin-top: 80px;
-            font-size: 2.5rem;
-            background: linear-gradient(to right, cyan, magenta);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .card-inner {
+      width:100%; height:100%;
+      position:relative;
+      transform-style:preserve-3d;
+      transition:transform 0.6s;
+    }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 90%;
-            margin: auto;
-        }
+    .card:hover .card-inner {
+      transform:rotateY(180deg);
+    }
 
-        .card {
-            width: 100%;
-            height: 300px;
-            perspective: 1000px;
-        }
-        .card-inner {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-        .card:hover .card-inner {
-            transform: rotateY(180deg);
-        }
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-            padding: 15px;
-        }
-        .card-front {
-            background: linear-gradient(to right, cyan, magenta);
-            color: black;
-        }
-        .card-back {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            transform: rotateY(180deg);
-        }
-        .icon {
-            width: 80px;
-            height: 80px;
-            margin-top: 10px;
-        }
-        .btn {
-            padding: 10px 15px;
-            background: cyan;
-            color: black;
-            font-weight: bold;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .btn:hover {
-            background: magenta;
-        }
+    .card-front, .card-back {
+      position:absolute; width:100%; height:100%;
+      backface-visibility:hidden;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      border-radius:10px;
+      box-shadow:0 4px 8px rgba(255,255,255,0.2);
+      padding:15px;
+    }
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #111;
-            padding: 15px 0;
-            box-shadow: 0 0 15px cyan;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
+    .card-front {
+      background:linear-gradient(to right, cyan, magenta);
+      color:black;
+    }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 0;
-            margin: 0;
-        }
+    .card-back {
+      background:rgba(255,255,255,0.1);
+      color:white;
+      transform:rotateY(180deg);
+    }
 
-        .navbar ul li {
-            display: inline;
-        }
+    .icon {
+      width:80px; height:80px; margin-top:10px;
+    }
 
-        .navbar ul li a {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            transition: 0.3s;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
+    .btn {
+      padding:10px 15px;
+      background:cyan; color:black;
+      font-weight:bold;
+      border-radius:5px;
+      text-decoration:none;
+      display:inline-block;
+      margin-top:10px;
+    }
 
-        .navbar ul li a:hover {
-            color: cyan;
-            text-shadow: 0 0 10px cyan;
-        }
-
-        /* Hamburger Menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle div {
-            width: 30px;
-            height: 4px;
-            background: cyan;
-            margin: 5px 0;
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                display: none;
-                flex-direction: column;
-                background: #111;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                box-shadow: 0 5px 10px cyan;
-            }
-
-            .navbar ul.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
-    </style>
+    .btn:hover {
+      background:magenta;
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="volunteer.html">Volunteer Work</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+
+<!-- Navbar -->
+<header>
+  <div class="nav-container">
+    <div class="nav-brand">Chavi Kant R</div>
+    <button class="menu-btn" id="nav-toggle">☰</button>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="Skills.html">Skills</a></li>
+        <li><a href="myblueprint.html">My-BluePrint</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <h1>🚀 My Projects</h1>
-    <div class="projects">
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>Scientific Calculator</h2>
-                    <img src="icons/cals.png" alt="Calculator" class="icon">
-                </div>
-                <div class="card-back">
-                    <h3>Tech Used</h3>
-                    <p>HTML and CSS</p>
-                    <a href="https://github.com/chavikant/Scientific-Calculator--HTML" class="btn">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>Python Calculator</h2>
-                    <img src="icons/pycals.png" alt="Python Calculator" class="icon">
-                </div>
-                <div class="card-back">
-                    <h3>Tech Used</h3>
-                    <p>Python</p>
-                    <a href="https://github.com/chavikant/PYTHON-Calculator" class="btn">View on GitHub</a>
-                </div>
-            </div>
-        </div>
+  </div>
+</header>
 
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>To-Do List App</h2>
-                    <img src="icons/todo.png" alt="To-Do List" class="icon">
-                </div>
-                <div class="card-back">
-                    <h3>Tech Used</h3>
-                    <p>Java, Android Studio</p>
-                    <a href="https://github.com/chavikant/To-Do-List-Java-App" class="btn">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>Weather App</h2>
-                    <img src="icons/weather.png" alt="Weather App" class="icon">
-                </div>
-                <div class="card-back">
-                    <h3>Tech Used</h3>
-                    <p>Java, Weather API</p>
-                    <a href="https://github.com/chavikant/Weather-App-Java" class="btn">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>Chatting App</h2>
-                    <img src="icons/chat.png" alt="Chatting App" class="icon">
-                </div>
-                <div class="card-back">
-                    <h3>Tech Used</h3>
-                    <p>Java, ZegoCloud</p>
-                    <a href="https://github.com/chavikant/Chatting-App-Java-Android" class="btn">View on GitHub</a>
-                </div>
-            </div>
-        </div>
+<!-- Title -->
+<h1>🚀 My Projects</h1>
 
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h2>Career Anna</h2>
-                    <p>An Career Guidence Website to help Young Generation<br> (In-Process)</p>
-                    <img src="icons\just logo.png" alt="Chatting App" class="icon">
-                </div>
-                <div class="card-back">
-                    <h3>Tech Used</h3>
-                    <p>Html, Css, JavaScript</p>
-                    <a href="https://chavikant.github.io/Career_Anna/" class="btn">View Website</a>
-                </div>
-            </div>
-        </div>
+<!-- Project Cards -->
+<div class="projects">
 
-
-        <script>
-            function toggleMenu() {
-                var nav = document.getElementById("nav-links");
-                nav.classList.toggle("active");
-            }
-        </script>
-
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Scientific Calculator</h2>
+        <img src="icons/cals.png" alt="Calculator" class="icon">
+      </div>
+      <div class="card-back">
+        <h3>Tech Used</h3>
+        <p>HTML and CSS</p>
+        <a href="https://github.com/chavikant/Scientific-Calculator--HTML" class="btn">View on GitHub</a>
+      </div>
     </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Python Calculator</h2>
+        <img src="icons/pycals.png" alt="Python Calculator" class="icon">
+      </div>
+      <div class="card-back">
+        <h3>Tech Used</h3>
+        <p>Python</p>
+        <a href="https://github.com/chavikant/PYTHON-Calculator" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>To-Do List App</h2>
+        <img src="icons/todo.png" alt="To-Do List" class="icon">
+      </div>
+      <div class="card-back">
+        <h3>Tech Used</h3>
+        <p>Java, Android Studio</p>
+        <a href="https://github.com/chavikant/To-Do-List-Java-App" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Weather App</h2>
+        <img src="icons/weather.png" alt="Weather App" class="icon">
+      </div>
+      <div class="card-back">
+        <h3>Tech Used</h3>
+        <p>Java, Weather API</p>
+        <a href="https://github.com/chavikant/Weather-App-Java" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Chatting App</h2>
+        <img src="icons/chat.png" alt="Chatting App" class="icon">
+      </div>
+      <div class="card-back">
+        <h3>Tech Used</h3>
+        <p>Java, ZegoCloud</p>
+        <a href="https://github.com/chavikant/Chatting-App-Java-Android" class="btn">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Career Anna</h2>
+        <p>A Career Guidance Website to help Young Generation<br>(In-Process)</p>
+        <img src="icons/just logo.png" alt="Career Anna" class="icon">
+      </div>
+      <div class="card-back">
+        <h3>Tech Used</h3>
+        <p>HTML, CSS, JavaScript</p>
+        <a href="https://chavikant.github.io/Career_Anna/" class="btn">View Website</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('nav-toggle').addEventListener('click', () => {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+
 </body>
 </html>

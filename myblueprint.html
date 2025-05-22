@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blueprint</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+  /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background:#000; color:#0ff;
+      font-family:'Poppins',sans-serif;
+      line-height:1.6;
+    }
+    a { color:inherit; text-decoration:none; }
+    ul { list-style:none; }
+
+    /* Navbar */
+    header {
+      background:#111; position:sticky; top:0; z-index:1000;
+      box-shadow:0 0 15px #0ff;
+    }
+    .nav-container {
+      max-width:1200px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 2rem;
+    }
+    .nav-brand {
+      font-size:1.5rem; font-weight:700; color:#f0f;
+    }
+    .nav-links { display:flex; gap:1.5rem; }
+    .nav-links a {
+      font-weight:500; padding:0.5rem; transition:color .3s, text-shadow .3s;
+    }
+    .nav-links a:hover {
+      color:#0ff; text-shadow:0 0 8px #0ff;
+    }
+    .menu-btn {
+      display:none; background:none; border:none;
+      font-size:1.5rem; color:#0ff; cursor:pointer;
+    }
+    @media(max-width:768px){
+      .nav-links {
+        position:absolute; top:60px; right:0; background:#111;
+        flex-direction:column; width:200px; display:none;
+        box-shadow:0 5px 15px #0ff;
+      }
+      .nav-links.open { display:flex; }
+      .menu-btn { display:block; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, cyan, magenta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    .section {
+      background: #111;
+      border-radius: 20px;
+      box-shadow: 0 0 15px magenta;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      width: 90%;
+      max-width: 800px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      align-items: center;
+
+    }
+
+    .section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px cyan;
+    }
+
+    .section h2 {
+      color: #f0f;
+      margin-bottom: 1rem;
+    }
+
+    .section p, .section li {
+      color: #0ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .icon {
+      margin-right: 10px;
+      color: magenta;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 10px cyan, 0 0 20px magenta;
+      }
+      50% {
+        text-shadow: 0 0 20px cyan, 0 0 30px magenta;
+      }
+    }
+
+    .animated-text {
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: linear-gradient(to right, cyan, magenta);
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .blueprint-container {
+  max-width: 900px;
+  margin: 60px auto; /* centers the container */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+
+  </style>
+
+</head>
+<body>
+
+
+      <header>
+    <div class="nav-container">
+      <div class="nav-brand">Chavi Kant R</div>
+      <button class="menu-btn" id="nav-toggle">☰</button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="Skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+      <script>
+    // Mobile nav toggle
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+  </script>
+
+<h1 class="animated-text">My Blueprint</h1>
+
+<div class="blueprint-container">
+  
+
+  <div class="section">
+    <h2><i class="fas fa-graduation-cap icon"></i>Education</h2>
+    <p><strong>B. Tech - Computer Science and Business Systems</strong><br>Jansons Institute of Technology<br>01/2023 - 01/2027</p>
+    <p><strong>12th - Higher Secondary</strong><br>A.V.P Trust Public School (CBSE)<br>08/2023</p>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-hands-helping icon"></i>Volunteer Experience</h2>
+    <ul>
+      <li>IEEE Joint Secretary Member</li>
+      <li>IIC Innovation Club Member</li>
+      <li>GDSC App Development - Co-Lead</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-language icon"></i>Languages</h2>
+    <p>English, Tamil, Hindi</p>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-bolt icon"></i>Activities</h2>
+    <ul>
+      <li>5+ Online Courses Completed</li>
+      <li>20+ Certifications</li>
+      <li>7+ Offline Webinars Attended</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
